@@ -26,7 +26,7 @@ public class HomeController extends ExtendsController {
     public ModelAndView home(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(getPath("/home"));
-        modelAndView.addObject("title", "Dashboard - SB Admin");
+        modelAndView.addObject("title", "불법 주차장");
         return modelAndView;
     }
 

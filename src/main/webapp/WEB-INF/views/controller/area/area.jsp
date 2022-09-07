@@ -19,7 +19,9 @@
     <!-- content -->
     <stripes:layout-component name="contents">
         <div id="layoutSidenav">
+
             <jsp:include page="side.jsp" flush="true" />
+
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">

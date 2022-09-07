@@ -19,13 +19,15 @@
     <!-- content -->
     <stripes:layout-component name="contents">
         <div id="layoutSidenav">
+
             <jsp:include page="side.jsp" flush="true" />
+
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">공영 주차장</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">지도 보기</li>
                         </ol>
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
