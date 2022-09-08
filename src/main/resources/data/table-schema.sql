@@ -1,0 +1,16 @@
+CREATE TABLE law_dong
+(
+    Seq      INT     NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    Code     INT     NOT NULL,
+    DongName INT     NOT NULL,
+    IsDel    BOOLEAN NOT NULL
+) ENGINE = InnoDB
+  CHARSET = utf8;
+
+
+CREATE TABLE parking
+(
+    Seq  INT         NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(50) NOT NULL
+) ENGINE = InnoDB
+  CHARSET = utf8;

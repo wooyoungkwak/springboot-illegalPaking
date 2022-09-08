@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://stripes.sourceforge.net/stripes.tld" prefix="stripes" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="tags" tagdir="/WEB-INF/tags" %>
 <% String contextPath = request.getContextPath(); %>
 
 <stripes:layout-render name="/WEB-INF/views/layout/layout.jsp">
@@ -20,24 +22,17 @@
     <stripes:layout-component name="contents">
         <div id="layoutSidenav">
 
-            <jsp:include page="side.jsp" flush="true" />
+            <jsp:include page="side.jsp" flush="true"/>
 
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">공영주차장</h1>
+                        <h1 class="mt-4">주차장등록</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">주차장 등록</li>
+                            <li class="breadcrumb-item active">공영주차장 > 주차장등록</li>
                         </ol>
-                        <div class="card mb-2">
-                            <div class="card-header">엑셀 파일 업로드</div>
-                            <div class="card-body">
-                                <div class="input-group">
-                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card shadow-sm rounded">
+                        <div class="card mb-2 shadow-sm rounded">
+                            <div class="card-header"><i class="fas fa-pen me-1"></i> 직접 입력</div>
                             <div class="card-body">
                                 <div class="row">
                                     <form class="row g-3">
@@ -54,7 +49,7 @@
                                             <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
                                         </div>
                                         <div class="col-md-2">
-                                            <label for="inputPrice" class="form-label">요금</label>
+                                            <label for="inputPrice" class="form-label">* 요금</label>
                                             <select id="inputPrice" class="form-select">
                                                 <option selected>무료</option>
                                                 <option>유료</option>
@@ -72,83 +67,23 @@
                                                 <option>평일</option>
                                             </select>
                                         </div>
-                                        <div class="col-md-2">
-                                            <label for="startTime" class="form-label">평일운영시작시간</label>
-                                            <select id="startTime" class="form-select">
-                                                <option selected>00:00</option>
-                                                <option>01:00</option>
-                                                <option>02:00</option>
-                                                <option>03:00</option>
-                                                <option>04:00</option>
-                                                <option>05:00</option>
-                                                <option>06:00</option>
-                                                <option>07:00</option>
-                                            </select>
+                                        <div class="col-md-1">
+                                            <tags:timeSelectTag id="startTime" title="평일시작시간" begin="0" end="23" timeFormat="00"/>
                                         </div>
-                                        <div class="col-md-2">
-                                            <label for="endTime" class="form-label">평일운영종료시간</label>
-                                            <select id="endTime" class="form-select">
-                                                <option selected>23:59</option>
-                                                <option>00:59</option>
-                                                <option>01:59</option>
-                                                <option>02:59</option>
-                                                <option>03:59</option>
-                                                <option>04:59</option>
-                                                <option>05:59</option>
-                                                <option>06:59</option>
-                                            </select>
+                                        <div class="col-md-1">
+                                            <tags:timeSelectTag id="endTime" title="평일종료시간" begin="0" end="23" timeFormat="59"/>
                                         </div>
-                                        <div class="col-md-2">
-                                            <label for="satStartTime" class="form-label">토요일운영시작시간</label>
-                                            <select id="satStartTime" class="form-select">
-                                                <option selected>00:00</option>
-                                                <option>01:00</option>
-                                                <option>02:00</option>
-                                                <option>03:00</option>
-                                                <option>04:00</option>
-                                                <option>05:00</option>
-                                                <option>06:00</option>
-                                                <option>07:00</option>
-                                            </select>
+                                        <div class="col-md-1">
+                                            <tags:timeSelectTag id="satStartTime" title="토요일시작시간" begin="0" end="23" timeFormat="00"/>
                                         </div>
-                                        <div class="col-md-2">
-                                            <label for="satEndTime" class="form-label">토요일운영종료시간</label>
-                                            <select id="satEndTime" class="form-select">
-                                                <option selected>23:59</option>
-                                                <option>00:59</option>
-                                                <option>01:59</option>
-                                                <option>02:59</option>
-                                                <option>03:59</option>
-                                                <option>04:59</option>
-                                                <option>05:59</option>
-                                                <option>06:59</option>
-                                            </select>
+                                        <div class="col-md-1">
+                                            <tags:timeSelectTag id="satEndTime" title="토요일종료시간" begin="0" end="23" timeFormat="59"/>
                                         </div>
-                                        <div class="col-md-2">
-                                            <label for="sunEndTime" class="form-label">일요일운영종료시간</label>
-                                            <select id="sunEndTime" class="form-select">
-                                                <option selected>23:59</option>
-                                                <option>00:59</option>
-                                                <option>01:59</option>
-                                                <option>02:59</option>
-                                                <option>03:59</option>
-                                                <option>04:59</option>
-                                                <option>05:59</option>
-                                                <option>06:59</option>
-                                            </select>
+                                        <div class="col-md-1">
+                                            <tags:timeSelectTag id="sunStartTime" title="일요일시작시간" begin="0" end="23" timeFormat="00"/>
                                         </div>
-                                        <div class="col-md-2">
-                                            <label for="sunStartTime" class="form-label">일요일운영시작시간</label>
-                                            <select id="sunStartTime" class="form-select">
-                                                <option selected>23:59</option>
-                                                <option>00:59</option>
-                                                <option>01:59</option>
-                                                <option>02:59</option>
-                                                <option>03:59</option>
-                                                <option>04:59</option>
-                                                <option>05:59</option>
-                                                <option>06:59</option>
-                                            </select>
+                                        <div class="col-md-1">
+                                            <tags:timeSelectTag id="sunEndTime" title="일요일종료시간" begin="0" end="23" timeFormat="59"/>
                                         </div>
                                         <div class="col-md-2">
                                             <label for="inputPhone" class="form-label">전화번호</label>
@@ -169,21 +104,30 @@
                                         </div>
                                         <div class="col-12">
                                             <label for="inputAddress2" class="form-label">소재지도로명 주소</label>
-                                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                            <input type="text" class="form-control" id="inputAddress2" placeholder="예> 광주광역시 광산구 쌍암동 694-83번지 1층  ">
                                         </div>
 
-<%--                                        <div class="col-12">--%>
-<%--                                            <div class="form-check">--%>
-<%--                                                <input class="form-check-input" type="checkbox" id="gridCheck">--%>
-<%--                                                <label class="form-check-label" for="gridCheck">--%>
-<%--                                                    등록--%>
-<%--                                                </label>--%>
-<%--                                            </div>--%>
-<%--                                        </div>--%>
+                                            <%--                                        <div class="col-12">--%>
+                                            <%--                                            <div class="form-check">--%>
+                                            <%--                                                <input class="form-check-input" type="checkbox" id="gridCheck">--%>
+                                            <%--                                                <label class="form-check-label" for="gridCheck">--%>
+                                            <%--                                                    등록--%>
+                                            <%--                                                </label>--%>
+                                            <%--                                            </div>--%>
+                                            <%--                                        </div>--%>
                                         <div class="col-12">
                                             <button type="submit" class="btn btn-primary">등록</button>
                                         </div>
                                     </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card shadow-sm rounded">
+                            <div class="card-header"><i class="fas fa-file-excel me-1"></i> 엑셀 파일 업로드</div>
+                            <div class="card-body">
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    <button class="btn btn-primary" type="button" id="inputGroupFileAddon03">등록</button>
                                 </div>
                             </div>
                         </div>
