@@ -14,7 +14,17 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>${title}</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="<%=contextPath%>/resources/css/styles.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="application/javascript">
+        // contextPath 구하기
+        $.getContextPath = function () {
+            let hostIndex = location.href.indexOf(location.host) + location.host.length;
+            return location.href.substring(hostIndex, location.href.indexOf('/', hostIndex + 1));
+        }
+
+        const _contextPath = $.getContextPath();
+    </script>
 </head>

@@ -15,20 +15,21 @@
 
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-        <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
+
+        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+            <li class="nav-item me-5">
                 <a class="nav-link active" aria-current="page" href="#">신고</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-5">
                 <a class="nav-link" href="#">불법주정차 구역</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-5">
                 <a class="nav-link" href="${pageContext.request.contextPath}/area" tabindex="-1" aria-disabled="true">공영주차장</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-5">
                 <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">전동 킥보드</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item me-5">
                 <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">결제</a>
             </li>
         </ul>

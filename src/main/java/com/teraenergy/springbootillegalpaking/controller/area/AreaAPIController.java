@@ -4,6 +4,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Maps;
+import com.teraenergy.springbootillegalpaking.model.entity.parking.domain.Parking;
+import com.teraenergy.springbootillegalpaking.model.entity.parking.service.ParkingService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,11 +15,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.HashMap;
 
+@RequiredArgsConstructor
 @Controller
 public class AreaAPIController {
 
-    @Autowired
-    ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
+
+    private final ParkingService parkingService;
 
     @PostMapping("/area/markers")
     @ResponseBody
@@ -35,5 +40,6 @@ public class AreaAPIController {
         String jsonStr = objectMapper.writeValueAsString(result);
         return objectMapper.readTree(jsonStr);
     }
+
 
 }

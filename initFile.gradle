@@ -282,7 +282,7 @@ task createYML {
                     break
                 case RDMBS.MYSQL:
                     content += "  jpa:\n" +
-                            "    database-platform: ??\n" +
+                            "    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect\n" +
                             "  datasource:\n"
                     if (hostOfRELASE != null && hostOfRELASE != "") {
                         content += "    url: jdbc:mysql://" + hostOfRELASE + ":3306"

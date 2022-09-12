@@ -9,7 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 @RunWith(SpringRunner.class)
-public class CreateSQL {
+public class SqlCreate {
 
     private String createTable(String tableName, Map<String, String> columns) {
         String result = "CREATE TABLE " + tableName + " ( \n";

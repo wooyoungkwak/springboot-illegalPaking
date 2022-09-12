@@ -58,22 +58,22 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">First</th>
-                                            <th scope="col">Second</th>
-                                            <th scope="col">Third</th>
-                                            <th scope="col">Fourth</th>
-                                            <th scope="col">Fifth</th>
+                                            <th scope="col">주차장명</th>
+                                            <th scope="col">요금</th>
+                                            <th scope="col">운행요일</th>
+                                            <th scope="col">평일시간</th>
+                                            <th scope="col">주소</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach begin="1" end="10" varStatus="status">
+                                        <c:forEach var="parking" items="${parkings}" varStatus="status">
                                             <tr>
-                                                <td>${status.index}</td>
-                                                <td>asldfj</td>
-                                                <td>asdlfj</td>
-                                                <td>alkdjf</td>
-                                                <td>alskdjflas</td>
-                                                <td>alskdjflas</td>
+                                                <td>${parking.prkSeq}</td>
+                                                <td>${parking.prkplceNm}</td>
+                                                <td>${parking.parkingchrgeInfo}</td>
+                                                <td>${parking.operDay}</td>
+                                                <td>${parking.weekdayOperOpenHhmm} ~ ${parking.weekdayOperColseHhmm}</td>
+                                                <td>${parking.rdnmadr}</td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>

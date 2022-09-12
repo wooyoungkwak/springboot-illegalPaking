@@ -2,8 +2,8 @@
 ext.dependenceOnSecurity = false                   // whether to use spring-boot-security
 ext.dependenceOnAop = false                        // whether to use spring-boot-aop
 ext.dependenceOnJwt = false                        // whether to use jwt
-ext.dependenceOnRDBMS = false                      // whether to use RDBMS
-ext.dependenceOnQUERYDSL = false                   // whether to use query DSL
+ext.dependenceOnRDBMS = true                      // whether to use RDBMS
+ext.dependenceOnQUERYDSL = true                   // whether to use query DSL
 ext.dependenceOnMYBATIS = false                    // whether to use mybatis
 ext.uploadArchive = false                          // whether to upload archive
 ext.dependenceOnBatch = false                        // whether to use Batch
