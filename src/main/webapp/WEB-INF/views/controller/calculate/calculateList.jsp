@@ -11,25 +11,25 @@
 <%@ taglib tagdir="/WEB-INF/tags" prefix="tags" %>
 <% String contextPath = request.getContextPath(); %>
 
-<stripes:layout-render name="/WEB-INF/views/layout/layout.jsp">
+<stripes:layout-render name="/WEB-INF/views/layout/navHtmlLayout.jsp">
 
     <!-- nav -->
     <stripes:layout-component name="nav">
-        <stripes:layout-render name="/WEB-INF/views/layout/nav.jsp"/>
+        <stripes:layout-render name="/WEB-INF/views/layout/component/navLayout.jsp"/>
+    </stripes:layout-component>
+
+    <!-- side -->
+    <stripes:layout-component name="side">
+        <jsp:include page="side.jsp" flush="true"/>
     </stripes:layout-component>
 
     <!-- content -->
     <stripes:layout-component name="contents">
-        <div id="layoutSidenav">
-
-            <jsp:include page="side.jsp" flush="true" />
-
-            <div id="layoutSidenav_content">
-                <main>
+        <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">주차장목록</h1>
+                        <h1 class="mt-4">결재목록</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">공영주차장 > 주차장목록</li>
+                            <li class="breadcrumb-item active">${subTitle} > 결재목록</li>
                         </ol>
                         <div class="card mb-4 shadow-sm rounded">
                             <div class="card-header">
@@ -98,27 +98,12 @@
                             </div>
                         </div>
                     </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
-        </div>
+            </main>
     </stripes:layout-component>
 
     <!-- javascript -->
     <stripes:layout-component name="javascript">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="<%=contextPath%>/resources/js/scripts.js"></script>
+        <script src="<%=contextPath%>/resources/js/calculate/calculateList-scripts.js"></script>
     </stripes:layout-component>
 
 </stripes:layout-render>

@@ -2,8 +2,10 @@ package com.teraenergy.springbootillegalpaking.model.entity.illegalzone.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.locationtech.jts.geom.Polygon;
 
 import javax.persistence.*;
+import java.awt.*;
 
 /**
  * Date : 2022-09-09
@@ -19,15 +21,18 @@ public class IllegalZone {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer ZoneSeq;
+    Integer zoneSeq;
 
-    @Column
-    String ZoneName;
+    @Column (nullable = false)
+    String name;
 
-//    @Column
-//    ZonePolygon
+    @Column (nullable = false)
+    Polygon polygon;
 
-    @Column
-    Integer LawDongSeq;
+    @Column (nullable = false)
+    Boolean isDel;
+
+    @Column (nullable = false)
+    Integer lawDongSeq;
 
 }

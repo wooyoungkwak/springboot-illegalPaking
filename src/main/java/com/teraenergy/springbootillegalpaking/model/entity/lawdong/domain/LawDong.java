@@ -20,12 +20,12 @@ public class LawDong {
     @GeneratedValue(strategy = GenerationType.AUTO)
     Integer LawDongSeq;
 
-    @Column
+    @Column (nullable = false)
     Double Code;
 
-    @Column
+    @Column (nullable = false)
     String DongName;
 
-    @Column
+    @Column (nullable = false)
     Boolean isDel;
 }

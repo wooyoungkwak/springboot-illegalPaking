@@ -144,7 +144,7 @@ public class SqlParking {
                     parking.setReferenceDate(LocalDate.parse(getCellData(row.getCell(30)).split(" ")[0]));
 
                     LawDong lawDong = lawDongService.getFromLnmadr(parking.getLnmadr());
-                    parking.setLawDong(lawDong);
+                    parking.setLawDongSeq(lawDong.getLawDongSeq());
                     parkings.add(parking);
                 }
             }

@@ -116,7 +116,6 @@ public class Parking {
     @Column
     LocalDate ReferenceDate;
 
-    @ManyToOne
-    @JoinColumn(name = "LawDongSeq")
-    LawDong lawDong;
+    @Column(nullable = false)
+    Integer lawDongSeq;
 }

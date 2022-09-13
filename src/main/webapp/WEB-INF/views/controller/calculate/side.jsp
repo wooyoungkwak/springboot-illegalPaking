@@ -12,9 +12,9 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">${subTitle}</div>
-                <a class="nav-link" href="${pageContext.request.contextPath}/area/map">
+                <a class="nav-link" href="${pageContext.request.contextPath}/calculate/calculateList">
                     <div class="sb-nav-link-icon"><i class="fas fa-map"></i></div>
-                    지도 보기
+                    결재목록
                 </a>
             </div>
         </div>

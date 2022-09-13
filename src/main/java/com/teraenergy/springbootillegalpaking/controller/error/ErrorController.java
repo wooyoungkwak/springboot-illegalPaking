@@ -18,7 +18,7 @@ public class ErrorController extends ExtendsController {
     public ModelAndView error401(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(getPath("/401"));
-        modelAndView.addObject("title", "401 Error - SB Admin");
+        modelAndView.addObject("title", "401 Error");
         return modelAndView;
     }
 
@@ -26,7 +26,7 @@ public class ErrorController extends ExtendsController {
     public ModelAndView error404(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(getPath("/404"));
-        modelAndView.addObject("title", "404 Error - SB Admin");
+        modelAndView.addObject("title", "404 Error");
         return modelAndView;
     }
 
@@ -34,7 +34,7 @@ public class ErrorController extends ExtendsController {
     public ModelAndView error500(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName(getPath("/500"));
-        modelAndView.addObject("title", "500 Error - SB Admin");
+        modelAndView.addObject("title", "500 Error");
         return modelAndView;
     }
 

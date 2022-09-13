@@ -1,4 +1,4 @@
-package com.teraenergy.springbootillegalpaking.controller.area;
+package com.teraenergy.springbootillegalpaking.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -41,7 +41,7 @@ import java.util.*;
  * Description :
  */
 @RequiredArgsConstructor
-@RequestMapping(value = "/area/files")
+@RequestMapping(value = "/files")
 @Controller
 public class FileController {
 
@@ -259,7 +259,7 @@ public class FileController {
                         parking.setReferenceDate(LocalDate.parse(getCellData(row.getCell(30)).split(" ")[0]));
 
                         LawDong lawDong = lawDongService.getFromLnmadr(parking.getLnmadr());
-                        parking.setLawDong(lawDong);
+                        parking.setLawDongSeq(lawDong.getLawDongSeq());
                         parkings.add(parking);
                     }
                 }

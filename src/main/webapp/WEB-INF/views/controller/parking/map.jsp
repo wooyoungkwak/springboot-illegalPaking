@@ -16,6 +16,7 @@
         <stripes:layout-render name="/WEB-INF/views/layout/component/navLayout.jsp"/>
     </stripes:layout-component>
 
+    <!-- side -->
     <stripes:layout-component name="side">
         <jsp:include page="side.jsp" flush="true"/>
     </stripes:layout-component>
@@ -38,7 +39,7 @@
 
     <!-- javascript -->
     <stripes:layout-component name="javascript">
-        <script src="<%=contextPath%>/resources/js/area/map-scripts.js"></script>
+        <script src="<%=contextPath%>/resources/js/parking/map-scripts.js"></script>
     </stripes:layout-component>
 
 </stripes:layout-render>

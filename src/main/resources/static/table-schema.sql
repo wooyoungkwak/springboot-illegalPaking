@@ -1,4 +1,5 @@
-CREATE DATABASE illegal_parking;
+CREATE
+DATABASE illegal_parking;
 
 -- 법정동코드
 CREATE TABLE law_dong
@@ -51,13 +52,14 @@ CREATE TABLE parking
   CHARSET = utf8;
 
 -- 불법 주정차 구역
+DROP TABLE illegal_zone;
 CREATE TABLE illegal_zone
 (
-    ZoneSeq     BIGINT AUTO_INCREMENT PRIMARY KEY,
-    ZoneName    VARCHAR(100) NOT NULL,               -- 불법 구역 이름
-    ZonePolygon POLYGON      NULL,                   -- 불법 구역
-    IsDel       BOOLEAN      NOT NULL DEFAULT FALSE, -- 삭제 여부
-    LawDongSeq  INT                                  -- 법정동 코드 키
+    ZoneSeq    BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    Name       VARCHAR(100) NOT NULL,               -- 불법 구역 이름
+    Polygon    POLYGON      NOT NULL,               -- 불법 구역
+    IsDel      BOOLEAN      NOT NULL DEFAULT FALSE, -- 삭제 여부
+    LawDongSeq INT          NOT NULL                -- 법정동 코드 키
 ) ENGINE = InnoDB
   CHARSET = utf8;
 
@@ -66,9 +68,9 @@ Drop table users;
 -- 회원 정보
 CREATE TABLE users
 (
-    UserSeq BIGINT AUTO_INCREMENT PRIMARY KEY,
+    UserSeq BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     Name    VARCHAR(10) NOT NULL,              -- 회원 이름
-    Email   POLYGON     NULL,                  -- email (id)
+    Email   POLYGON NULL,                      -- email (id)
     Passwd  INT,                               -- 패스워드
     Type    BIGINT,                            -- 사용자 고유 체번
     IsDel   BOOLEAN     NOT NULL DEFAULT FALSE -- 삭제 여부
@@ -79,10 +81,10 @@ CREATE TABLE users
 CREATE TABLE car
 (
     CarSeq  INT AUTO_INCREMENT PRIMARY KEY,
-    CarName VARCHAR(10) NULL,                  -- 차 이름
-    CarNum  VARCHAR(10) NULL,                  -- 차 번호
-    UserSeq BIGINT      NOT NULL,              -- 사용자 키
-    IsDel   BOOLEAN     NOT NULL DEFAULT FALSE -- 삭제 여부
+    CarName VARCHAR(10) NULL,              -- 차 이름
+    CarNum  VARCHAR(10) NULL,              -- 차 번호
+    UserSeq BIGINT  NOT NULL,              -- 사용자 키
+    IsDel   BOOLEAN NOT NULL DEFAULT FALSE -- 삭제 여부
 ) ENGINE = InnoDB
   CHARSET = utf8;
 

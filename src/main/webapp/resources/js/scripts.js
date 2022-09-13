@@ -26,6 +26,14 @@ window.addEventListener('DOMContentLoaded', event => {
 });
 
 
+$(document).ready(function () {
+   $('#back').on('click', function (){
+       window.history.back();
+   })
+});
+
+
+
 $.fn.fileUpload = function (opt) {
 
     let formData = new FormData();

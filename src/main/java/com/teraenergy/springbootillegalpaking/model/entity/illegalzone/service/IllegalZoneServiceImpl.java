@@ -29,7 +29,7 @@ public class IllegalZoneServiceImpl implements IllegalZoneService{
     @Override
     public List<IllegalZone> gets(Integer lawdongSeq) {
         JPQLQueryFactory query = new JPAQueryFactory(entityManager);
-        return query.selectFrom(QIllegalZone.illegalZone).where(QIllegalZone.illegalZone.LawDongSeq.eq(lawdongSeq))
+        return query.selectFrom(QIllegalZone.illegalZone).where(QIllegalZone.illegalZone.lawDongSeq.eq(lawdongSeq))
                 .fetch();
     }
 

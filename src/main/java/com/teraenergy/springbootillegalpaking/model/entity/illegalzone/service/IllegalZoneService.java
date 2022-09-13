@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface IllegalZoneService {
 
-    public List<IllegalZone> gets(Integer lawdongSeq);
+    public List<IllegalZone> gets(Integer lawDongSeq);
 
     public IllegalZone set(IllegalZone illegalZone);
 
