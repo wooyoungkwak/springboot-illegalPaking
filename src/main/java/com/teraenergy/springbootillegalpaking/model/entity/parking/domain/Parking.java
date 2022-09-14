@@ -1,6 +1,5 @@
 package com.teraenergy.springbootillegalpaking.model.entity.parking.domain;
 
-import com.teraenergy.springbootillegalpaking.model.entity.lawdong.domain.LawDong;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,101 +20,102 @@ public class Parking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer PrkSeq;
+    Integer parkingSeq;
 
     @Column
-    String PrkplceNo;
+    String prkplceNo;
 
     @Column
-    String PrkplceNm;
+    String prkplceNm;
 
     @Column
-    String PrkplceSe;
+    String prkplceSe;
 
     @Column
-    String PrkplceType;
+    String prkplceType;
 
     @Column
-    String Rdnmadr;
+    String rdnmadr;
 
     @Column
-    String Lnmadr;
+    String lnmadr;
 
     @Column
-    Integer Prkcmprt;
+    Integer prkcmprt;
 
     @Column
-    Integer FeedingSe;
+    Integer feedingSe;
 
     @Column
-    String EnforceSe;
+    String enforceSe;
 
     @Column
-    String OperDay;
+    String operDay;
 
     @Column
-    String WeekdayOperOpenHhmm;
+    String weekdayOperOpenHhmm;
 
     @Column
-    String WeekdayOperColseHhmm;
+    String weekdayOperColseHhmm;
 
     @Column
-    String SatOperOpenHhmm;
+    String satOperOpenHhmm;
 
     @Column
-    String SatOperCloseHhmm;
+    String satOperCloseHhmm;
 
     @Column
-    String HolidayOperOpenHhmm;
+    String holidayOperOpenHhmm;
 
     @Column
-    String HolidayOperCloseHhmm;
+    String holidayOperCloseHhmm;
 
     @Column
-    String ParkingchrgeInfo;
+    String parkingchrgeInfo;
 
     @Column
-    String BasicTime;
+    String basicTime;
 
     @Column
-    Integer BasicCharge;
+    Integer basicCharge;
 
     @Column
-    String AddUnitTime;
+    String addUnitTime;
 
     @Column
-    Integer AddUnitCharge;
+    Integer addUnitCharge;
 
     @Column
-    String DayCmmtktAdjTime;
+    String dayCmmtktAdjTime;
 
     @Column
-    Integer DayCmmtkt;
+    Integer dayCmmtkt;
 
     @Column
-    Integer MonthCmmtkt;
+    Integer monthCmmtkt;
 
     @Column
-    String Metpay;
+    String metpay;
 
     @Column
-    String Spcmnt;
+    String spcmnt;
 
     @Column
-    String InstitutionNm;
+    String institutionNm;
 
     @Column
-    String PhoneNumber;
+    String phoneNumber;
 
     @Column
-    Double Latitude;
+    Double latitude;
 
     @Column
-    Double Longitude;
+    Double longitude;
 
     @Column
-    LocalDate ReferenceDate;
+    LocalDate referenceDate;
 
     @Column(nullable = false)
-    Integer lawDongSeq;
+    Integer dongSeq;
+
 }

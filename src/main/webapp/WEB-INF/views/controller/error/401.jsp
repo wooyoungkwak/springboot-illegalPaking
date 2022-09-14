@@ -21,6 +21,7 @@
                             <h1 class="display-1">401</h1>
                             <p class="lead">Unauthorized</p>
                             <p>Access to this resource is denied.</p>
+                            <p class="lead">${msg}</p>
                             <a href="#" id="back">
                                 <i class="fas fa-arrow-left me-1"></i>
                                 Return to Back

@@ -259,7 +259,7 @@ public class FileController {
                         parking.setReferenceDate(LocalDate.parse(getCellData(row.getCell(30)).split(" ")[0]));
 
                         LawDong lawDong = lawDongService.getFromLnmadr(parking.getLnmadr());
-                        parking.setLawDongSeq(lawDong.getLawDongSeq());
+                        parking.setDongSeq(lawDong.getDongSeq());
                         parkings.add(parking);
                     }
                 }

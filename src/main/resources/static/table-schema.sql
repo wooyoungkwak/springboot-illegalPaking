@@ -2,19 +2,21 @@ CREATE
 DATABASE illegal_parking;
 
 -- 법정동코드
+-- DROP TABLE law_dong;
 CREATE TABLE law_dong
 (
-    LawDongSeq INT         NOT NULL PRIMARY KEY AUTO_INCREMENT, -- 법정동 코드 키
-    Code       BIGINT      NOT NULL,                            -- 법정동 코드
-    DongName   VARCHAR(50) NOT NULL,                            -- 법정동 이름
-    IsDel      BOOLEAN     NOT NULL DEFAULT FALSE               -- 삭제 여부
+    DongSeq INT          NOT NULL PRIMARY KEY AUTO_INCREMENT, -- 법정동 코드 키
+    Code    BIGINT       NOT NULL,                            -- 법정동 코드
+    Name    VARCHAR(100) NOT NULL,                            -- 법정동 이름
+    IsDel   BOOLEAN      NOT NULL DEFAULT FALSE               -- 삭제 여부
 ) ENGINE = InnoDB
   CHARSET = utf8;
 
 -- 공영주차장 정보
+-- DROP TABLE parking
 CREATE TABLE parking
 (
-    PrkSeq               INT     NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    ParkingSeq           INT     NOT NULL PRIMARY KEY AUTO_INCREMENT,
     PrkplceNo            VARCHAR(20),                    -- 주차장관리번호
     PrkplceNm            VARCHAR(30),                    -- 주차장명
     PrkplceSe            VARCHAR(10),                    -- 주차장구분
@@ -47,25 +49,38 @@ CREATE TABLE parking
     Longitude            DECIMAL(18, 10),                -- 경도
     ReferenceDate        DATE,                           -- 데이터기준일자
     IsDel                BOOLEAN NOT NULL DEFAULT FALSE, -- 삭제 여부
-    LawDongSeq           INT                             -- 법정동 코드 키
+    DongSeq              INT                             -- 법정동 코드 키
 ) ENGINE = InnoDB
   CHARSET = utf8;
 
 -- 불법 주정차 구역
-DROP TABLE illegal_zone;
+-- DROP TABLE illegal_zone;
 CREATE TABLE illegal_zone
 (
-    ZoneSeq    BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    Name       VARCHAR(100) NOT NULL,               -- 불법 구역 이름
-    Polygon    POLYGON      NOT NULL,               -- 불법 구역
-    IsDel      BOOLEAN      NOT NULL DEFAULT FALSE, -- 삭제 여부
-    LawDongSeq INT          NOT NULL                -- 법정동 코드 키
+    ZoneSeq   BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    Name      VARCHAR(30) NULL,               -- 불법 구역 이름
+    Polygon   POLYGON NOT NULL,               -- 불법 구역
+    IsDel     BOOLEAN NOT NULL DEFAULT FALSE, -- 삭제 여부
+    StartTime Datetime NULL,                  -- 시작 시간
+    EndTime   Datetime NULL,                  -- 종료 시간
+    DongSeq   INT     NOT NULL,               -- 법정동 코드 키
+    TypeSeq   INT     NOT NULL                -- 타입 키
 ) ENGINE = InnoDB
   CHARSET = utf8;
 
-Drop table users;
+-- 불법 주정차 구역
+-- DROP TABLE illegal_type;
+CREATE TABLE illegal_type
+(
+    TypeSeq INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    Name    VARCHAR(30) NOT NULL,              -- 불법 구역 타입 이름 ( 예> 불법주청자, 5분주차, 탄력주차, 샘플주차 )
+    IsDel   BOOLEAN     NOT NULL DEFAULT FALSE -- 삭제 여부
+) ENGINE = InnoDB
+  CHARSET = utf8;
+
 
 -- 회원 정보
+-- DROP TABLE users;
 CREATE TABLE users
 (
     UserSeq BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
@@ -91,10 +106,11 @@ CREATE TABLE car
 -- ---------------------------------------------------------------------------------------------------
 
 
-
-
-
-
+select *
+from illegal_zone
+where DongSeq in (select law_dong.DongSeq
+                  from law_dong
+                  where law_dong.Name like '%광양%');
 
 
 

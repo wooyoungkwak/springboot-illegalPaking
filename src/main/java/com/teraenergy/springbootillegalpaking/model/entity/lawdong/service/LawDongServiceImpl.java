@@ -37,7 +37,7 @@ public class LawDongServiceImpl implements LawDongService{
         JPAQueryFactory query = new JPAQueryFactory(entityManager);
         return query.selectFrom(QLawDong.lawDong)
                 .where(QLawDong.lawDong.isDel.isFalse())
-                .where(QLawDong.lawDong.DongName.contains(lnmadr))
+                .where(QLawDong.lawDong.name.contains(lnmadr))
                 .fetchOne();
     }
 

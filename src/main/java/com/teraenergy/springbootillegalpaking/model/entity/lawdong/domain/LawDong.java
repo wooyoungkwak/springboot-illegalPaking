@@ -18,13 +18,13 @@ import javax.persistence.*;
 public class LawDong {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer LawDongSeq;
+    Integer dongSeq;
 
     @Column (nullable = false)
-    Double Code;
+    Double code;
 
     @Column (nullable = false)
-    String DongName;
+    String name;
 
     @Column (nullable = false)
     Boolean isDel;

@@ -95,7 +95,7 @@ public class SqlLawDong {
                 LawDong lawDong = new LawDong();
 
                 lawDong.setCode(Double.parseDouble(getCellData(row.getCell(0))));
-                lawDong.setDongName(getCellData(row.getCell(1)));
+                lawDong.setName(getCellData(row.getCell(1)));
                 lawDong.setIsDel(getCellData(row.getCell(2)).trim().equals("존재") ? false : true);
                 lawDongs.add(lawDong);
             }
